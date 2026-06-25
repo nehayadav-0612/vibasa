@@ -30,6 +30,8 @@ jobs:
           cat > /tmp/firebase-key.json << 'EOF'
           ${{ secrets.FIREBASE_SERVICE_ACCOUNT_VIBASA_5AC30 }}
           EOF
-          npx firebase deploy --only hosting --project vibasa-5ac30
+          cat /tmp/firebase-key.json
+          echo "---"
+          npx firebase deploy --only hosting --project vibasa-5ac30 -d
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-key.json
