@@ -26,8 +26,10 @@ jobs:
         run: npm run build
 
       - name: Deploy to Firebase Hosting
+        run: |
+          cat > /tmp/firebase-key.json << 'EOF'
+          ${{ secrets.FIREBASE_SERVICE_ACCOUNT_VIBASA_5AC30 }}
+          EOF
+          npx firebase deploy --only hosting --project vibasa-5ac30
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-key.json
-        run: |
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_VIBASA_5AC30 }}" > /tmp/firebase-key.json
-          npx firebase deploy --only hosting --project vibasa-5ac30
