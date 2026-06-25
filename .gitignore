@@ -1,0 +1,33 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies (ignore node_modules in root and all apps)
+/node_modules
+server/node_modules
+apps/*/node_modules
+
+
+# next.js
+/out/
+*.next/
+*.next/*
+apps/*/.next/
+apps/*/.next/*
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

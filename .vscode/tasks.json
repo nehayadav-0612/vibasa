@@ -1,0 +1,55 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+
+    // How to user: In vscode, open the command palette (Ctrl+Shift+P) and run "Tasks: Run Task". Then select "Deploy All" to start both the server and dashboard in parallel.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Server",
+            "type": "shell",
+            "command": "npm run dev",
+            "options": {
+                "cwd": "E:\\Ghost\\Softwares\\chromedriver_win32\\Github\\Private_Project\\Server"
+            },
+            "presentation": {
+                "group": "dev",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Start Dashboard",
+            "type": "shell",
+            "command": "npm run dev",
+            "options": {
+                "cwd": "E:\\Ghost\\Softwares\\chromedriver_win32\\Github\\Private_Project\\apps\\supervisor-dashboard"
+            },
+            "presentation": {
+                "group": "dev",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Start Mobile App",
+            "type": "shell",
+            "command": "npx expo start",
+            "options": {
+                "cwd": "E:\\Ghost\\Softwares\\chromedriver_win32\\Github\\Private_Project\\apps\\mobile-app"
+            },
+            "presentation": {
+                "group": "dev",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Deploy All",
+            "dependsOn": ["Start Server", "Start Dashboard", "Start Mobile App"],
+            "dependsOrder": "parallel",
+            "presentation": {
+                "group": "dev",
+                "panel": "dedicated",
+                "reveal": "always"
+            },
+        }
+    ]
+}

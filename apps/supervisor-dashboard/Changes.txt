@@ -1,0 +1,2 @@
+npm install @tailwindcss/postcss --save-dev
+npm install -D tailwindcss postcss autoprefixer
